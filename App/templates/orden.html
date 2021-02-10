@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title%} Pedido de {{orden.1}} {% endblock %}
+
+{% block content %}
+    <h1>
+        {{orden.1}}
+    </h1>
+    <p>
+        {{orden.2}}
+    </p>
+    <span class="date">
+        {{orden.3}}
+    </span>
+    
+{% endblock %}

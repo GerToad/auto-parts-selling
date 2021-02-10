@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title%} Ordene {{ super() }} {% endblock %}
+
+{% block content %}
+
+    {% if orden %}
+        <h3>Editar orden de {{orden.1}}</h3>
+    {% else %}
+        <h3>Crear orden</h3>
+    {% endif %}
+
+    <form action="" method="POST">
+        <label for="nombres" id="name">Nombre</label>
+        <input type="text" name="nombres" {% if orden %} value="{{orden.1}}" {% endif %}>
+
+        <label>Elija sus productos</label>
+        {% for producto in productos %}
+            <div>
+                <label for="producto" class="chk">{{producto.1}}</label>
+                <input type="checkbox" name="producto[]" value="{{producto.1}}">
+            </div>
+        {% endfor %}
+
+        <label for="fecha" id="fecha">Fecha del pedido</label>
+        <input type="date" name="fecha" value="{{ now.day }}/{{ now.month }}/{{ now.year }}">
+
+        <input type="submit" value="Guardar y pagar">
+    </form>
+    
+{% endblock %}

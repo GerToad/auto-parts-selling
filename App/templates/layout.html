@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} | Talachas{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <div id="logo">
+            <h1>Refacciones "El talachas"</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Inicio</a>
+            </li>
+            <li>
+                <a href="{{ url_for('pedidos') }}">Pedidos</a>
+            </li>
+            <li>
+                <a href="{{ url_for('crear_pedido') }}">Hacer orden</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="barra">
+        <span class="esq-izq"></span>
+        <span class="relleno"></span>
+        <span class="esq-der"></span>
+    </div>
+
+    <div id="content">
+        <div class="box">
+            {% block content %}
+            <!--Codigo que viene de templates-->
+                <strong>Contenido del bloque original</strong>
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer>
+        Refacciones con el talachas &copy; Gerardo - {{ now.month }}/{{ now.year }}
+    </footer>
+</body>
+</html>
